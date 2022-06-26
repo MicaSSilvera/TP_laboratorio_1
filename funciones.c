@@ -1,31 +1,45 @@
 /*
- * Funciones.c
+ * funciones.c
  *
- *  Created on: 13 may. 2022
+ *  Created on: 18 jun. 2022
  *      Author: Silvera Micaela
+ *
+ *
  */
-#include "Funciones.h"
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<conio.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include<string.h>
 
+#include "LinkedList.h"
+#include "Controller.h"
+#include "funciones.h"
+#include "Passenger.h"
+
+void mostrarMenu (){
+
+	printf("\n 1) Cargar los datos de los pasajeros desde el archivo data.csv (modo texto).");
+	printf("\n 2) Cargar los datos de los pasajeros desde el archivo data.csv (modo binario).");
+	printf("\n 3) Alta de pasajero");
+	printf("\n 4) Modificar datos de pasajero");
+	printf("\n 5) Baja de pasajero");
+	printf("\n 6) Listar pasajero");
+	printf("\n 7) Ordenar pasajeros");
+	printf("\n 8) Guardar los datos de los pasajeros en el archivo data.csv (modo texto)");
+	printf("\n 9) Guardar los datos de los pasajeros en el archivo data.csv (modo binario).");
+	printf("\n 10) Salir");
+
+	return;
+
+}//fin mostrarMenu
+///
 void clearConsole(){
 	printf("\n");
 	printf("\n");
+
+	return;
 }//FIN clearConsole()
-
-void mostrarMenu(){
-
-	printf("\n1) ALTA DE PASAJERO:");
-	printf("\n2) MODIFICAR PASAJERO: ");
-	printf("\n3) BAJA DE PASAJERO:");
-	printf("\n4) INFORMAR:");
-	printf("\n5) CARGA FORZADA:");
-	printf("\n6) SALIR. \n");
-}//fin mostrarMenu()
-
+///
 int esEntero(char linea[]) {
 	int esEntero = 1;
 	int longitud = strlen(linea);
@@ -56,7 +70,7 @@ int esEntero(char linea[]) {
 
 	return esEntero;
 }//FIN esEntero()
-
+///
 int validarEntero(char mensaje[]){
 	int numero = 0;
 
@@ -80,7 +94,7 @@ int validarEntero(char mensaje[]){
 
 	return numero;
 }//FIN validarEntero()
-
+///
 int validarEstado(char mensaje[]){
 	int numero = 0;
 
@@ -110,7 +124,7 @@ int validarEstado(char mensaje[]){
 
 	return numero;
 }//FIN validarEntero()
-
+///
 char validarRespuesta(){
 	char rta;
 	int repite = 1;
@@ -129,4 +143,18 @@ char validarRespuesta(){
 	}//FIN WHILE
 
 	return rta;
-}//FIN validarEntero()
+}//FIN validarRespuesta()
+///
+int validarPasajeros(LinkedList* listaPasajeros){
+
+	int validacion = 0;
+	int size = 0;
+	 //llamo a la funcion ll_len() para que retorne el tamaño del LinkedList.
+	 size = ll_len(listaPasajeros);
+
+	if(size > 0){
+		validacion = 1;
+	}
+
+	return validacion;
+}//fin funcion validar

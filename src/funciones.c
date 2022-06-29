@@ -23,11 +23,12 @@ void mostrarMenu (){
 	printf("\n 3) Alta de pasajero");
 	printf("\n 4) Modificar datos de pasajero");
 	printf("\n 5) Baja de pasajero");
-	printf("\n 6) Listar pasajero");
-	printf("\n 7) Ordenar pasajeros");
-	printf("\n 8) Guardar los datos de los pasajeros en el archivo data.csv (modo texto)");
-	printf("\n 9) Guardar los datos de los pasajeros en el archivo data.csv (modo binario).");
-	printf("\n 10) Salir");
+	printf("\n 6) Borrar todos los pasajeros");
+	printf("\n 7) Listar pasajero");
+	printf("\n 8) Ordenar pasajeros");
+	printf("\n 9) Guardar los datos de los pasajeros en el archivo data.csv (modo texto)");
+	printf("\n 10) Guardar los datos de los pasajeros en el archivo data.csv (modo binario).");
+	printf("\n 11) Salir");
 
 	return;
 
@@ -130,7 +131,7 @@ char validarRespuesta(){
 	int repite = 1;
 
 	while(repite == 1) {
-		printf("\n Estas seguro de que deseas eliminar a ese pasajero? [ s / n ] ");
+		printf("\n ESTAS SEGURO DE ELIMINAR TODOS LOS PASAJEROS? [ s / n ] ");
 		scanf ("%c", &rta);
 
 		if (rta == 's' || rta == 'n' ) {

@@ -82,6 +82,7 @@ void  mostrarListaPasajeros(LinkedList* listaPasajeros){
 
 	 }//fin for
 
+	 free(pasajeroLista);
 
 }//fin funcion mostrarListaPasajeros
 ///
@@ -177,10 +178,14 @@ void eliminarPasajero(LinkedList* listaPasajeros, int idPasajero ){
 	}//fin for
 
 	if(indice > -1){
+		//llamo la funcion ll_remove() elimina un pasajero de la lista
 		ll_remove( listaPasajeros,indice);
+
+
 	}//fin if
 
 }//fin eliminarPasajero
+
 ///
 int obtenerTipoPasajeroPorTexto(char* texto){
 

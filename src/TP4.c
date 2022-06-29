@@ -1,3 +1,13 @@
+/*
+ ============================================================================
+ Name        : TP4.c
+ Author      : Silvera Micaela
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>
@@ -29,7 +39,7 @@ int main(){
 	setbuf(stdout,NULL);
     int opcion = 0;
     int idPasajero = 0;
-
+    char rta;
 
     int opcionModificar = 0;
     int idIngresado = 0;
@@ -40,7 +50,7 @@ int main(){
 
     Passenger* miPasajero;
 
-    while(opcion != 10){
+    while(opcion != 11){
 
     	 mostrarMenu();
 
@@ -89,8 +99,8 @@ int main(){
     	             	break;
 
     	             case 4: // MODIFICAR DATOS DE PASAJEROS
-
-    	            	validar = validarPasajeros(listaPasajeros);
+    	            	 //llamo a la funcion ll_isEmpty() para validar que la lista de pasajeros esta vacia
+    	            	validar = ll_isEmpty(listaPasajeros);
 						if(validar == 1){
 
     	            	 //llamo a la funcion mostrarListaPasajeros() para que muestre todos los datos de los pasajeros ingresados para poder hacer la modificación correspondiente
@@ -122,8 +132,8 @@ int main(){
     	             break;
 
     	             case 5://BAJA DE PASAJEROS
-
-    	            	 validar = validarPasajeros(listaPasajeros);
+    	            	 //llamo a la funcion ll_isEmpty() para validar que la lista de pasajeros esta vacia
+    	            	 validar = ll_isEmpty(listaPasajeros);
 						 if(validar == 1){
 
     	            	 //llamo a la funcion mostrarListaPasajeros() para que muestre todos los datos de los pasajeros ingresados para poderdar la baja correspondiente
@@ -144,9 +154,28 @@ int main(){
     	            	 clearConsole();
     	             break;
 
-    	             case 6://LISTAR PASAJEROS
+    	           case 6:// BORRAR TODOS LOS PASAJEROS
+    	        	   rta = validarRespuesta();
+						if(rta == 's'){
+							//llamo la funcion ll_clar() para que se borren todos los pasajeros de la lista
+							ll_clear(listaPasajeros);
 
-    	            	 validar = validarPasajeros(listaPasajeros);
+							 printf("SE HAN BORRADO TODOS LOS PASAJEROS DE LA LISTA.");
+						}//fin if
+					   	 //llamo a la funcion ll_isEmpty() para validar que la lista de pasajeros esta vacia
+						 validar = ll_isEmpty(listaPasajeros);
+						 if(validar == 1){
+							 printf("La lista esta vacia.");
+
+						 }//fin if
+
+
+    	            	 clearConsole();
+    	            	 break;
+
+    	             case 7://LISTAR PASAJEROS
+    	            	 //llamo a la funcion ll_isEmpty() para validar que la lista de pasajeros esta vacia
+    	            	 validar = ll_isEmpty(listaPasajeros);
 						 if(validar == 1){
 
 						 //llamo a la funcion mostrarListaPasajeros() para que muestre todos los datos de los pasajeros ingresados.
@@ -159,9 +188,9 @@ int main(){
     	            	 clearConsole();
     	             break;
 
-    	             case 7:// ORDENAR PASAJEROS
-
-    	            	 validar = validarPasajeros(listaPasajeros);
+    	             case 8:// ORDENAR PASAJEROS
+    	            	 //llamo a la funcion ll_isEmpty() para validar que la lista de pasajeros esta vacia
+    	            	 validar = ll_isEmpty(listaPasajeros);
 						 if(validar == 1){
 							 ll_sort(listaPasajeros, Passenger_sortByApellido, 1);
 
@@ -175,8 +204,9 @@ int main(){
     	            	 clearConsole();
     	             break;
 
-    	             case 8:
-    	            	 validar = validarPasajeros(listaPasajeros);
+    	             case 9:
+    	            	 //llamo a la funcion ll_isEmpty() para validar que la lista de pasajeros esta vacia
+    	            	 validar = ll_isEmpty(listaPasajeros);
 						 if(validar == 1){
 
 							 if(controller_saveAsText("data.csv",listaPasajeros) ==1 ){
@@ -194,8 +224,9 @@ int main(){
 						 clearConsole();
 						 break;
 
-    	             case 9:
-    	            	 validar = validarPasajeros(listaPasajeros);
+    	             case 10:
+    	            	 //llamo a la funcion ll_isEmpty() para validar que la lista de pasajeros esta vacia
+    	            	 validar = ll_isEmpty(listaPasajeros);
 						 if(validar == 1){
 
 							 if(controller_saveAsBinary("data.bin",listaPasajeros) == 1  ){
@@ -215,7 +246,8 @@ int main(){
 						 clearConsole();
 						 break;
 
-    	             case 10://salir
+
+    	             case 11://salir
 
     	            	 printf("saliendo");
 

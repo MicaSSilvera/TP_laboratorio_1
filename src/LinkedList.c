@@ -218,34 +218,40 @@ int ll_set(LinkedList *this, int index, void *pElement) {
  *
  */
 int ll_remove(LinkedList *this, int index) {
-	Node *nodoActual;
-	Node *nodoAnterior;
-	Node *nodoProximo;
-	int length;
+
 	int returnAux = -1;
+	    Node* pNodoAnterior;
+	    Node* pNodoBorrar;
+	    Node* pNodoSiguiente;
 
-	if (this != NULL) {
-		length = ll_len(this);
-		if (index >= 0 && index < length) {
-			nodoActual = getNode(this, index);
-			if (nodoActual != NULL) {
-				nodoProximo = getNode(this, index + 1);
-				if (index == 0) {
-					this->pFirstNode = nodoProximo;
-				} else {
-					nodoAnterior = getNode(this, index - 1);
-					if (nodoAnterior != NULL) {
-						nodoAnterior->pNextNode = nodoProximo;
-					}
-				}
-				this->size = length - 1;
-				free(nodoActual);
-				returnAux = 0;
-			}
+	    if(this!=NULL)
+	    {
+	    	if(index>=0 && index < ll_len(this))
+	    	{
+	    		pNodoBorrar = getNode(this, index);
+	    		if(pNodoBorrar!=NULL)
+	    		{
+	    			pNodoSiguiente = getNode(this, index+1);
+	    			if(index == 0)
+	    			{
+	    				this->pFirstNode = pNodoSiguiente;
+	    			}
+	    			else
+	    			{
+	    				pNodoAnterior = getNode(this, index-1);
+	    				if(pNodoAnterior!=NULL)
+	    				{
+	    					pNodoAnterior->pNextNode = pNodoSiguiente;
+	    				}
+	    			}
+	    			free(pNodoBorrar);
+	    			this->size--;
+	    			returnAux = 0;
+	    		}
+	    	}
+	    }
 
-		}
-	}
-	return returnAux;
+	    return returnAux;
 }
 
 /** \brief Elimina todos los elementos de la lista
@@ -256,26 +262,20 @@ int ll_remove(LinkedList *this, int index) {
  *
  */
 int ll_clear(LinkedList *this) {
-	int i;
-	int length;
-	int retornoRemove;
 	int returnAux = -1;
+	    if(this!=NULL)
+	    {
+	    	while(ll_len(this) > 0){
+	    		for(int i = 0; i < ll_len(this); i++)
+				{
+					ll_remove(this,i);
+					returnAux = 0;
+				}
+	    	}
 
-	if (this != NULL) {
-		length = ll_len(this);
+	    }
 
-		for (i = 0; i < length; i++) {
-			retornoRemove = ll_remove(this, i);
-
-			if (retornoRemove == -1) {
-				returnAux = -1;
-				break;
-			}
-			returnAux = 0;
-		}
-	}
-
-	return returnAux;
+	    return returnAux;
 }
 
 /** \brief Elimina todos los elementos de la lista y la lista

@@ -32,13 +32,13 @@ struct Passenger* Passenger_new(int idNuevoPasajero){
 	memcpy(&mensaje, "Ingrese el precio : \n", MENSAJES);
 	pasajeroNuevo->precio = (float)validarEntero(mensaje);
 
-	memcpy(&mensaje, "Ingrese tipo de pasajero: [1.  - 2.  - 3. ] \n", MENSAJES);
+	memcpy(&mensaje, "Ingrese tipo de pasajero: [1. EconomyClass - 2. ExecutiveClass - 3. FirstClass] \n", MENSAJES);
 	pasajeroNuevo->tipoPasajero = validarEstado(mensaje);
 
 	printf("Ingrese el codigo de vuelo  \n");
 	scanf("%s", &pasajeroNuevo->codigoVuelo);
 
-	memcpy(&mensaje, "Ingrese estado de vuelo: [1. - 2. - 3.] \n", MENSAJES);
+	memcpy(&mensaje, "Ingrese estado de vuelo: [1. En Horario - 2. En Vuelo - 3. Aterrizado - 4. Demorado] \n", MENSAJES);
 	pasajeroNuevo->estadoVuelo = validarEstado(mensaje);
 
 
@@ -82,6 +82,7 @@ void  mostrarListaPasajeros(LinkedList* listaPasajeros){
 
 	 }//fin for
 
+	 free(pasajeroLista);
 
 }//fin funcion mostrarListaPasajeros
 ///
@@ -177,6 +178,7 @@ void eliminarPasajero(LinkedList* listaPasajeros, int idPasajero ){
 	}//fin for
 
 	if(indice > -1){
+		//llamo la funcion ll_remove() elimina un elemento de la lista
 		ll_remove( listaPasajeros,indice);
 	}//fin if
 
@@ -221,6 +223,7 @@ int obtenerEstadoVueloPorTexto(char* texto){
 	const char* str4 = "En Horario";
 	const char* str5 = "En Vuelo";
 	const char* str6 = "Aterrizado";
+	const char* str7 = "Demorado";
 
 	int estadoVuelo = 0;
 
@@ -230,6 +233,8 @@ int obtenerEstadoVueloPorTexto(char* texto){
 		estadoVuelo = 2;
 	}else if (strcmp(texto, str6) == 0){
 		estadoVuelo = 3;
+	}else if (strcmp(texto, str7) == 0){
+		estadoVuelo = 4;
 	}//FIN IF
 
 	return estadoVuelo;
@@ -245,6 +250,8 @@ char* obtenerEstadoVueloPorEntero(int numero){
 		strcpy(estadoVuelo, "En Vuelo");
 	}else if (numero == 3){
 		strcpy(estadoVuelo, "Aterrizado");
+	}else if (numero == 4){
+		strcpy(estadoVuelo, "Demorado");
 	}//FIN IF
 
 	return estadoVuelo;

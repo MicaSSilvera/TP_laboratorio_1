@@ -89,9 +89,9 @@ int main(){
     	             	break;
 
     	             case 4: // MODIFICAR DATOS DE PASAJEROS
-
-    	            	validar = validarPasajeros(listaPasajeros);
-						if(validar == 1){
+    	            	 //llamo a la funcion ll_isEmpty() para validar que la lista de pasajeros esta vacia
+    	            	validar = ll_isEmpty(listaPasajeros);
+						if(validar == 0){
 
     	            	 //llamo a la funcion mostrarListaPasajeros() para que muestre todos los datos de los pasajeros ingresados para poder hacer la modificación correspondiente
     	            	 mostrarListaPasajeros(listaPasajeros);
@@ -122,9 +122,9 @@ int main(){
     	             break;
 
     	             case 5://BAJA DE PASAJEROS
-
-    	            	 validar = validarPasajeros(listaPasajeros);
-						 if(validar == 1){
+    	            	 //llamo a la funcion ll_isEmpty() para validar que la lista de pasajeros esta vacia
+    	            	 validar = ll_isEmpty(listaPasajeros);
+						 if(validar == 0){
 
     	            	 //llamo a la funcion mostrarListaPasajeros() para que muestre todos los datos de los pasajeros ingresados para poderdar la baja correspondiente
 						 mostrarListaPasajeros(listaPasajeros);
@@ -145,9 +145,9 @@ int main(){
     	             break;
 
     	             case 6://LISTAR PASAJEROS
-
-    	            	 validar = validarPasajeros(listaPasajeros);
-						 if(validar == 1){
+    	            	 //llamo a la funcion ll_isEmpty() para validar que la lista de pasajeros esta vacia
+    	            	 validar = ll_isEmpty(listaPasajeros);
+						 if(validar == 0){
 
 						 //llamo a la funcion mostrarListaPasajeros() para que muestre todos los datos de los pasajeros ingresados.
     	            	 mostrarListaPasajeros(listaPasajeros);
@@ -160,9 +160,9 @@ int main(){
     	             break;
 
     	             case 7:// ORDENAR PASAJEROS
-
-    	            	 validar = validarPasajeros(listaPasajeros);
-						 if(validar == 1){
+    	            	 //llamo a la funcion ll_isEmpty() para validar que la lista de pasajeros esta vacia
+    	            	 validar = ll_isEmpty(listaPasajeros);
+						 if(validar == 0){
 							 ll_sort(listaPasajeros, Passenger_sortByApellido, 1);
 
 						 //llamo a la funcion mostrarListaPasajeros() para que muestre todos los datos de los pasajeros ingresados.
@@ -176,8 +176,9 @@ int main(){
     	             break;
 
     	             case 8:
-    	            	 validar = validarPasajeros(listaPasajeros);
-						 if(validar == 1){
+    	            	 //llamo a la funcion ll_isEmpty() para validar que la lista de pasajeros esta vacia
+    	            	 validar = ll_isEmpty(listaPasajeros);
+						 if(validar == 0){
 
 							 if(controller_saveAsText("data.csv",listaPasajeros) ==1 ){
 
@@ -195,8 +196,9 @@ int main(){
 						 break;
 
     	             case 9:
-    	            	 validar = validarPasajeros(listaPasajeros);
-						 if(validar == 1){
+    	            	 //llamo a la funcion ll_isEmpty() para validar que la lista de pasajeros esta vacia
+    	            	 validar = ll_isEmpty(listaPasajeros);
+						 if(validar == 0){
 
 							 if(controller_saveAsBinary("data.bin",listaPasajeros) == 1  ){
 

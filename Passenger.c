@@ -62,7 +62,7 @@ void  mostrarListaPasajeros(LinkedList* listaPasajeros){
 		//llamo a la funcion ll_get() que le paso un lista para que retorne el indice de un pasajero
 		pasajeroLista = ll_get(listaPasajeros, i);
 
-		printf("\n *************************");
+		/*printf("\n *************************");
 
 		printf("\n ID : %d", pasajeroLista->id);
 
@@ -78,7 +78,9 @@ void  mostrarListaPasajeros(LinkedList* listaPasajeros){
 
 		printf("\n ESTADO DEL VUELO : %d [ %s ]",pasajeroLista->estadoVuelo, obtenerEstadoVueloPorEntero(pasajeroLista->estadoVuelo) );
 
-		printf("\n *************************");
+		printf("\n *************************");*/
+
+		printf("||%-4d | %13s | %17s | %.2f | %15s | %18s | %15s||\n", pasajeroLista->id, pasajeroLista->nombre, pasajeroLista->apellido, pasajeroLista->precio, pasajeroLista->codigoVuelo, obtenerTipoPasajeroPorEntero(pasajeroLista->tipoPasajero), obtenerEstadoVueloPorEntero(pasajeroLista->estadoVuelo));
 
 	 }//fin for
 
